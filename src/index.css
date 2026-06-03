@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #171512;
+  background: #f7f3ea;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(184, 109, 68, 0.12), transparent 30rem),
+    linear-gradient(180deg, #faf7f0 0%, #f4efe4 42%, #eef1e8 100%);
+}
+
+button,
+a,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: #b86d44;
+  color: #fffaf1;
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.28em] text-clay;
+  }
+
+  .surface-card {
+    @apply rounded-[2rem] border border-white/70 bg-white/70 shadow-card backdrop-blur;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-field;
+  }
+}
