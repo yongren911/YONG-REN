@@ -1,19 +1,25 @@
 import Button from './Button.jsx'
 
 export default function Hero() {
-  const heroVideoSrc = `${import.meta.env.BASE_URL}videos/hero.mp4`
+  const heroDesktopVideoSrc = `${import.meta.env.BASE_URL}videos/hero-desktop.mp4`
+  const heroMobileVideoSrc = `${import.meta.env.BASE_URL}videos/hero-mobile.mp4`
+  const heroPosterSrc = `${import.meta.env.BASE_URL}images/hero-poster.jpg`
 
   return (
     <section id="hero" className="relative isolate min-h-[calc(100vh-5rem)] overflow-hidden bg-ink text-white">
       <video
         className="absolute inset-0 -z-20 h-full w-full object-cover"
-        src={heroVideoSrc}
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
+        poster={heroPosterSrc}
         aria-hidden="true"
-      />
+      >
+        <source src={heroMobileVideoSrc} media="(max-width: 767px)" type="video/mp4" />
+        <source src={heroDesktopVideoSrc} type="video/mp4" />
+      </video>
       <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="section-shell relative z-10 flex min-h-[calc(100vh-5rem)] items-center py-24">
         <div className="max-w-4xl">
