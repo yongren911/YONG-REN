@@ -1,25 +1,48 @@
+import { useEffect, useState } from 'react'
+
 import Button from './Button.jsx'
 
 export default function Hero() {
   const heroDesktopVideoSrc = `${import.meta.env.BASE_URL}videos/hero-desktop.mp4`
-  const heroMobileVideoSrc = `${import.meta.env.BASE_URL}videos/hero-mobile.mp4`
   const heroPosterSrc = `${import.meta.env.BASE_URL}images/hero-poster.jpg`
+  const [shouldRenderVideo, setShouldRenderVideo] = useState(false)
+  const [videoFailed, setVideoFailed] = useState(false)
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 768px)')
+
+    const syncVideoVisibility = () => {
+      setShouldRenderVideo(desktopQuery.matches)
+      setVideoFailed(false)
+    }
+
+    syncVideoVisibility()
+    desktopQuery.addEventListener('change', syncVideoVisibility)
+
+    return () => desktopQuery.removeEventListener('change', syncVideoVisibility)
+  }, [])
 
   return (
-    <section id="hero" className="relative isolate min-h-[calc(100vh-5rem)] overflow-hidden bg-ink text-white">
-      <video
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster={heroPosterSrc}
-        aria-hidden="true"
-      >
-        <source src={heroMobileVideoSrc} media="(max-width: 767px)" type="video/mp4" />
-        <source src={heroDesktopVideoSrc} type="video/mp4" />
-      </video>
+    <section
+      id="hero"
+      className="relative isolate min-h-[calc(100vh-5rem)] overflow-hidden bg-cover bg-center bg-no-repeat text-white"
+      style={{ backgroundImage: `url(${heroPosterSrc})` }}
+    >
+      {shouldRenderVideo && !videoFailed ? (
+        <video
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={heroPosterSrc}
+          aria-hidden="true"
+          onError={() => setVideoFailed(true)}
+        >
+          <source src={heroDesktopVideoSrc} type="video/mp4" />
+        </video>
+      ) : null}
       <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="section-shell relative z-10 flex min-h-[calc(100vh-5rem)] items-center py-24">
         <div className="max-w-4xl">
