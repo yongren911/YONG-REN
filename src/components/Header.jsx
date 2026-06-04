@@ -19,7 +19,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/50 bg-[#fbf8ef]/88 backdrop-blur-xl">
       <nav className="section-shell flex h-20 items-center justify-between gap-6" aria-label="Primary navigation">
         <a href="#hero" className="focus-ring rounded text-xl font-black tracking-[0.18em] text-ink">
-          AEROFIT
+          YONGREN
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
