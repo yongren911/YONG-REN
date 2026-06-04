@@ -120,7 +120,7 @@ export default function App() {
               <p className="eyebrow">Brand Mission</p>
               <h2 className="mt-4 text-4xl font-black leading-tight tracking-[-0.055em] sm:text-6xl">Better support, fewer compromises.</h2>
               <p className="mt-6 text-lg leading-8 text-ink/66">
-                AEROFIT is built around durable ergonomics, responsible material choices and gear that earns a long place in your kit. We favor repairable construction, clear care guidance and fit systems designed for years of training and recovery.
+                YONGREN is built around durable ergonomics, responsible material choices and gear that earns a long place in your kit. We favor repairable construction, clear care guidance and fit systems designed for years of training and recovery.
               </p>
               <div className="mt-8 grid gap-4">
                 {missionPoints.map((point) => (
@@ -225,7 +225,7 @@ export default function App() {
       <footer className="border-t border-ink/10 bg-[#f8f4eb] py-14">
         <div className="section-shell grid gap-10 md:grid-cols-[1.1fr_repeat(4,1fr)]">
           <div>
-            <a href="#hero" className="text-xl font-black tracking-[0.18em]">AEROFIT</a>
+            <a href="#hero" className="text-xl font-black tracking-[0.18em]">YONGREN</a>
             <p className="mt-4 max-w-xs text-sm leading-6 text-ink/58">Support, movement, durability and recovery for outdoor-minded athletes.</p>
           </div>
           {Object.entries(footerColumns).map(([title, links]) => (
