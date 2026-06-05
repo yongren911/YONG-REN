@@ -35,10 +35,37 @@ const missionPoints = [
 ]
 
 const productFeatures = [
-  '360° adaptive compression',
-  'Breathable support zones',
-  'Low-profile stabilizing structure',
-  'Built for training and recovery',
+  'Structured everyday crown',
+  'Curved sun-shielding brim',
+  'Adjustable comfort fit',
+  'Lightweight training-day feel',
+]
+
+const hatProducts = [
+  {
+    name: 'YONGREN Field Cap — Blue',
+    color: 'Blue',
+    image: `${import.meta.env.BASE_URL}images/hat-blue.png`,
+    swatch: 'bg-[#244f87]',
+  },
+  {
+    name: 'YONGREN Field Cap — Black',
+    color: 'Black',
+    image: `${import.meta.env.BASE_URL}images/hat-black.png`,
+    swatch: 'bg-[#171512]',
+  },
+  {
+    name: 'YONGREN Field Cap — Gray',
+    color: 'Gray',
+    image: `${import.meta.env.BASE_URL}images/hat-gray.png`,
+    swatch: 'bg-[#9b9a94]',
+  },
+  {
+    name: 'YONGREN Field Cap — Red',
+    color: 'Red',
+    image: `${import.meta.env.BASE_URL}images/hat-red.png`,
+    swatch: 'bg-[#b64235]',
+  },
 ]
 
 const stories = [
@@ -135,36 +162,59 @@ export default function App() {
         </section>
 
         <section className="section-shell pb-24 sm:pb-32">
-          <div className="surface-card grid overflow-hidden lg:grid-cols-2">
-            <PlaceholderVisual tone="clay" label="AeroKnee" className="min-h-[32rem]" />
-            <div className="p-8 sm:p-12 lg:p-16">
-              <p className="eyebrow">Product Highlight</p>
-              <h2 className="mt-4 text-4xl font-black tracking-[-0.055em] sm:text-5xl">AeroKnee Pro Support</h2>
-              <p className="mt-5 text-lg leading-8 text-ink/64">
-                A quiet, stable knee sleeve designed for daily athletes who switch between load, pace and recovery.
-              </p>
-              <ul className="mt-8 grid gap-3 text-ink/75">
-                {productFeatures.map((feature) => (
-                  <li key={feature} className="flex gap-3">
-                    <span className="mt-1 text-clay">●</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex items-end justify-between gap-6 border-t border-ink/10 pt-7">
-                <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/45">Price</p>
-                  <p className="mt-1 text-3xl font-black">$68</p>
-                </div>
-                <div className="flex gap-2" aria-label="Color options">
-                  {['bg-ink', 'bg-moss', 'bg-clay'].map((color) => (
-                    <span key={color} className={`h-8 w-8 rounded-full border-2 border-white shadow ${color}`} />
+          <div className="surface-card overflow-hidden p-6 sm:p-8 lg:p-10">
+            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div className="p-2 sm:p-4">
+                <p className="eyebrow">Product Highlight</p>
+                <h2 className="mt-4 text-4xl font-black tracking-[-0.055em] sm:text-5xl">YONGREN Field Cap</h2>
+                <p className="mt-5 text-lg leading-8 text-ink/64">
+                  A clean outdoor cap made for training days, travel kits and everyday recovery walks.
+                </p>
+                <ul className="mt-8 grid gap-3 text-ink/75">
+                  {productFeatures.map((feature) => (
+                    <li key={feature} className="flex gap-3">
+                      <span className="mt-1 text-clay">●</span>
+                      <span>{feature}</span>
+                    </li>
                   ))}
+                </ul>
+                <div className="mt-8 flex items-end justify-between gap-6 border-t border-ink/10 pt-7">
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/45">Price</p>
+                    <p className="mt-1 text-3xl font-black">$38</p>
+                  </div>
+                  <div className="flex gap-2" aria-label="Color options">
+                    {hatProducts.map((product) => (
+                      <span key={product.color} className={`h-8 w-8 rounded-full border-2 border-white shadow ${product.swatch}`} title={product.color} />
+                    ))}
+                  </div>
                 </div>
+                <a href="#cart" className="focus-ring mt-8 inline-flex w-full items-center justify-center rounded-full bg-ink px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-moss sm:w-auto">
+                  Shop Now
+                </a>
               </div>
-              <a href="#cart" className="focus-ring mt-8 inline-flex w-full items-center justify-center rounded-full bg-ink px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-moss sm:w-auto">
-                Shop Now
-              </a>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {hatProducts.map((product) => (
+                  <article key={product.color} className="group overflow-hidden rounded-[1.75rem] border border-ink/10 bg-field/70 p-4 transition hover:-translate-y-1 hover:bg-white hover:shadow-card">
+                    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.35rem] bg-white/75">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-full w-full object-contain p-5 transition duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="mt-4 flex items-center justify-between gap-4">
+                      <div>
+                        <h3 className="font-black tracking-[-0.03em]">{product.name}</h3>
+                        <p className="mt-1 text-sm font-bold uppercase tracking-[0.16em] text-ink/45">{product.color}</p>
+                      </div>
+                      <span className={`h-7 w-7 shrink-0 rounded-full border-2 border-white shadow ${product.swatch}`} aria-hidden="true" />
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
