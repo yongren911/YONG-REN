@@ -5,24 +5,24 @@ import PlaceholderVisual from './components/PlaceholderVisual.jsx'
 
 const categories = [
   {
-    title: 'Knee Support',
-    description: 'Adaptive compression and low-profile stability for hard training, trail days and steady recovery.',
-    tone: 'moss',
+    title: 'Black Beanie',
+    description: 'Minimal cold-weather beanie with a clean silhouette and versatile everyday styling.',
+    image: `${import.meta.env.BASE_URL}images/hat-black.png`,
   },
   {
-    title: 'Wrist Support',
-    description: 'Durable support wraps and braces that move naturally through lifts, swings and daily work.',
-    tone: 'clay',
+    title: 'Gray Beanie',
+    description: 'Soft technical knit beanie designed for comfort, warmth and easy outdoor pairing.',
+    image: `${import.meta.env.BASE_URL}images/hat-gray.png`,
   },
   {
-    title: 'Performance Gloves',
-    description: 'Grip, protection and breathable comfort for strength work, cycling and cold morning sessions.',
-    tone: 'bark',
+    title: 'Forest Green Beanie',
+    description: 'Outdoor-inspired beanie with a natural tone for trail, camping and daily wear.',
+    image: `${import.meta.env.BASE_URL}images/hat-forest-green.png`,
   },
   {
-    title: 'Foot Recovery',
-    description: 'Corrective and recovery-minded support for long miles, standing days and post-session care.',
-    tone: 'field',
+    title: 'Purple Beanie',
+    description: 'Bold performance beanie with a refined color expression and snug athletic fit.',
+    image: `${import.meta.env.BASE_URL}images/hat-purple.png`,
   },
 ]
 
@@ -43,28 +43,28 @@ const productFeatures = [
 
 const hatProducts = [
   {
-    name: 'YONGREN Field Cap — Blue',
-    color: 'Blue',
-    image: `${import.meta.env.BASE_URL}images/hat-blue.png`,
-    swatch: 'bg-[#244f87]',
-  },
-  {
-    name: 'YONGREN Field Cap — Black',
+    name: 'YONGREN Beanie — Black',
     color: 'Black',
     image: `${import.meta.env.BASE_URL}images/hat-black.png`,
     swatch: 'bg-[#171512]',
   },
   {
-    name: 'YONGREN Field Cap — Gray',
+    name: 'YONGREN Beanie — Gray',
     color: 'Gray',
     image: `${import.meta.env.BASE_URL}images/hat-gray.png`,
     swatch: 'bg-[#9b9a94]',
   },
   {
-    name: 'YONGREN Field Cap — Red',
-    color: 'Red',
-    image: `${import.meta.env.BASE_URL}images/hat-red.png`,
-    swatch: 'bg-[#b64235]',
+    name: 'YONGREN Beanie — Forest Green',
+    color: 'Forest Green',
+    image: `${import.meta.env.BASE_URL}images/hat-forest-green.png`,
+    swatch: 'bg-[#274333]',
+  },
+  {
+    name: 'YONGREN Beanie — Purple',
+    color: 'Purple',
+    image: `${import.meta.env.BASE_URL}images/hat-purple.png`,
+    swatch: 'bg-[#6f4a8e]',
   },
 ]
 
@@ -111,7 +111,7 @@ export default function App() {
             title="Support systems for every moving part."
             copy="Clean silhouettes, field-tested materials and category clarity for the moments your body asks for help."
           />
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2">
             {categories.map((category) => (
               <CategoryCard key={category.title} {...category} />
             ))}
